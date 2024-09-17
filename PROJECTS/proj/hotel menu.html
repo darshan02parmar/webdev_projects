@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Menu</title>
+<style>
+    body {
+    background-image: linear-gradient(to bottom, #85cd9b, #daf53f);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+    }
+    .menu-container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .category-button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+    }
+    .category-button:hover {
+        background-color: #45a049;
+    }
+    .menu-item {
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+    }
+    .item-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 8px;
+        margin-right: 20px;
+        object-fit: cover;
+    }
+    .item-details {
+        flex: 1;
+    }
+    .item-name {
+        font-weight: bold;
+        color: #333;
+        font-size: 18px;
+    }
+    .item-price {
+        float: right;
+        color: #777;
+        font-size: 16px;
+    }
+    .item-description {
+        color: #555;
+        margin-top: 8px;
+    }
+    .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s;
+        z-index: 999;
+    }
+    .back-to-top:hover {
+        background-color: #45a049;
+    }
+    @media (max-width: 600px) {
+        .item-image {
+            width: 80px;
+            height: 80px;
+        }
+        .menu-item {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .item-details {
+            text-align: left;
+            margin-top: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="menu-container" id="menu-container">
+    <h1>Hotel Menu</h1>
+    <button class="category-button" onclick="filterCategory('All')">All</button>
+    <button class="category-button" onclick="filterCategory('Starters')">Starters</button>
+    <button class="category-button" onclick="filterCategory('Main Course')">Main Course</button>
+    <button class="category-button" onclick="filterCategory('Desserts')">Desserts</button>
+
+    <div class="menu-item" data-category="Starters">
+        <img src="https://i.pinimg.com/originals/f8/ea/b7/f8eab7541ace430870bde0a779217e39.jpg" alt="Butter Chicken" class="item-image">
+        <div class="item-details">
+            <span class="item-name">Butter Chicken</span>
+            <span class="item-price">180</span>
+            <p class="item-description">Juicy grilled chicken served with seasoned vegetables.</p>
+        </div>
+    </div>
+    <div class="menu-item" data-category="Main Course">
+        <img src="https://i.pinimg.com/474x/2e/10/a8/2e10a820a742557d615b183c1b9293d3.jpg" alt="Pasta" class="item-image">
+        <div class="item-details">
+            <span class="item-name">Pasta </span>
+            <span class="item-price">100</span>
+            <p class="item-description">Creamy carbonara sauce with bacon and Parmesan cheese.</p>
+        </div>
+    </div>
+    <div class="menu-item" data-category="Starters">
+        <img src="https://dizzybusyandhungry.com/wp-content/uploads/2019/05/fruit-and-vegetable-salad-served-in-lettuce-leaf-300x300.jpg" alt="vegetables Salad" class="item-image">
+        <div class="item-details">
+            <span class="item-name">vegetables Salad</span>
+            <span class="item-price">70</span>
+            <p class="item-description">Fresh romaine lettuce with croutons, Parmesan cheese, and Caesar dressing.</p>
+        </div>
+    </div>
+    <div class="menu-item" data-category="Main Course">
+        <img src="https://iowagirleats.com/wp-content/uploads/2022/01/How-to-Cook-Burgers-in-the-Oven-iowagirleats-Featured-300x300.jpg" alt="Cheeseburger" class="item-image">
+        <div class="item-details">
+            <span class="item-name">Cheeseburger</span>
+            <span class="item-price">80</span>
+            <p class="item-description">Classic cheeseburger with lettuce, tomato, onion, and pickles.</p>
+        </div>
+    </div>
+    <div class="menu-item" data-category="Desserts">
+        <img src="https://iowagirleats.com/wp-content/uploads/2023/02/Gluten-Free-Pizza-Crust-iowagirleats-Featured2-300x300.jpg" alt="Pizza" class="item-image">
+        <div class="item-details">
+            <span class="item-name">Pizza</span>
+            <span class="item-price">120</span>
+            <p class="item-description">Crispy battered fish served with French fries and tartar sauce.</p>
+        </div>
+    </div>
+</div>
+
+<button onclick="topFunction()" class="back-to-top" id="myBtn" title="Go to top">↑</button>
+
+<script>
+    // Filter by category
+    function filterCategory(category) {
+        var items = document.querySelectorAll('.menu-item');
+        items.forEach(function(item) {
+            if (category === 'All' || item.dataset.category === category) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    // Smooth scrolling
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
+</body>
+</html>
