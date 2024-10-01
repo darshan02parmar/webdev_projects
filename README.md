@@ -4,7 +4,7 @@ This repository contains the code for my personal portfolio website, built using
 
 ## Live Demo
 
-[My Portfolio](https://darshan02parmar.github.io/webdev_projects/.com)
+[You can view the live demo of the portfolio here.](https://darshan02parmar.github.io/webdev_projects/.com)
 
 
 
